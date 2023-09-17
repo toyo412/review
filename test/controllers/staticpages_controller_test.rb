@@ -16,8 +16,11 @@ class StaticpagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should about contact" do
-    get about_path
+  test "should get about " do
+    get "/about"
     assert_response :success
+    assert_select "title", "About | Ruby on Rails Tutorial"
   end
+
+
 end
