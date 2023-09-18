@@ -1,0 +1,46 @@
+<img alt="Rails logo" width="200px" src="/assets/rails-<long string>.svg">
+<long string>の部分は、ファイル名が一意になるようにRailsによって追加されます。
+これは、例えば画像ファイルを新しい画像に更新したときに、ブラウザ内に保存された
+キャッシュに意図的にヒットさせないようにするための仕組みです。また、src属性に
+は "images" というディレクトリ名が含まれていないことにも注目してください。こ
+れはassetsディレクトリ内の他のディレクトリ(imagesやjavascripts、stylesheets
+など)も同様です。これは高速化のための仕組みで、Railsはassetsディレクトリ直下
+の画像をapp/assets/imagesディレクトリにある画像と紐付けています。これにより
+、ブラウザから見るとすべてのファイルが同じディレクトリにあるように見えるように
+なります。そして、このようなフラットなディレクトリ構成を採っていると、ファイル
+をより高速にブラウザに渡すことができるようになります。
+
+Bootstrapフレームワークでは、動的なスタイルシートを生成するためにLESS CSS言語
+を使っていますが、RailsのAsset Pipelineはデフォルトでは(LESSと非常によく似た)
+Sass言語をサポートします。そのため、bootstrap-sassは、LESSをSassへ変換し、必要
+なBootstrapファイルを現在のアプリケーションですべて利用できるようにします。
+
+app/assets/stylesheets/
+Asset Pipelineの一部であり、このディレクトリに置かれたスタイルシートは
+application.cssの一部としてWebサイトのレイアウトに読み込まれます。
+
+Asset Pipeline
+1アセットディレクトリ、2マニフェストファイル、3プリプロセッサエンジン。
+1静的ファイルを目的別に分類する、標準的な3つのディレクトリが使われています。
+app/assets: 現在のアプリケーション固有のアセット
+lib/assets: あなたの開発チームによって作成されたライブラリ用のアセット
+vendor/assets: サードパーティのアセット（デフォルトでは存在しません）
+2マニフェストファイルを使って、それらをどのように1つのファイルにまとめる
+のかをRailsに指示する、CSSとJavaScriptに適用する。
+*= require_tree . -/app/assets/stylesheets/application.css-->マニフェストファイル
+Sprocketsにapp/assets/stylesheetsディレクトリ(サブディレクトリを含む)中のすべて
+のCSSファイルをアプリケーションCSSに含めるよう指示しています。
+*= require_self
+CSSの読み込みシーケンスの中で、application.css自身もその対象に含めるよう指示
+しています。
+3必要なアセットをディレクトリに配置してまとめた後、さまざまなプリプロセッサエン
+ジンを実行して結合する。どのファイルに対してどのプリプロセッサを使うのかをファイル
+名の拡張子で判断します。
+
+アセットパイプラインのメリット
+アセットパイプラインがすべてのスタイルシートを結合して1つのCSSファイルapplication.css
+にまとめます。さらに、それらのファイルすべてに対して 不要な空白やインデントを取り除
+く処理を行い、ファイルサイズを最小化します。
+
+データベースとやりとりをするデフォルトのRailsライブラリはActive Record
+User--ApplicationRecord--ActiveRecord::Base--Object
