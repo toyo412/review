@@ -1,0 +1,3 @@
+routeパスはurlによって決まる。
+例　/ -> root_path /home -> home_path
+コントローラはtoで指定する。 staticpages#home

@@ -1,0 +1,21 @@
+renderはviewを閲覧せずにそのままページを変えずに渡す。
+validatesはデフォルトでは、Userオブジェクトを作った時に閲覧される
+user.valid? で有効か確かめられる
+user.save saveメソッドは、成功すればtrueを、失敗すればfalseを返す
+createメソッドはnewとsaveを合わせたもの
+updateメソッドは属性のハッシュを受け取り、成功時には更新と保存を続
+けて同時に行います(保存に成功した場合はtrueを返します)。ただし、
+バリデーションが1つでも失敗すると、updateの呼び出しは失敗します。
+update_attributeには、バリデーションを回避する
+user.errors.full_messagesはuser.valid?などでエラーを書かないと表示されない
+uniqueness:{case_sensitive:false}で大文字小文字を区別しない
+モデルの評価はデータベースに保存される前に実行される
+has_secure_passwordをUserモデルに追加する。
+1セキュアにハッシュ化したパスワードを、データベース内のpassword_digest属性に保存
+できるようになる。
+22つの仮想的な属性(passwordとpassword_confirmation)が使えるようになる。また、
+存在性と値が一致するかどうかのバリデーションも追加される。
+3authenticateメソッドが使えるようになる(引数の文字列がパスワードと一致するとUser
+オブジェクトを返し、一致しない場合はfalseを返すメソッド)
+!!user.authenticate("password")でtrue or falseを返す
+has_secure_passwordは6文字分の空白をパスしてしまう。

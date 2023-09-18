@@ -1,0 +1,6 @@
+class="jumbotron" 背景色を鼠色にする。
+class="btn下線を消し幅を作る btn-lgサイズ btn-primary背景色、青
+class="navbar navbarを定義しないと以降のnavbarが使えない navbar-fixed-top 上に
+固定する。他のdivからは認識されない、重なる。navbar-inverse濃色ナビゲーションバー
+class="nav liの間隔が広くなる navber-nav 色が白になり、ホバー状態の白線がでなくなる。
+navbar-right 右寄せ"

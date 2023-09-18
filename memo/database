@@ -1,0 +1,15 @@
+Active Recordはデータベースのレベルでは一意性を保証していない
+この問題はデータベースレベルでも一意性を強制するだけで解決します
+具体的にはデータベース上のemailのカラムにインデックス(index)
+を追加し、そのインデックスが一意であるようにすれば解決
+rails generate migration add_index_to_users_email
+def change
+  add_index :users, :email, unique: true
+end
+sersテーブルのemailカラムにインデックスを追加するためにadd_index
+というRailsのメソッドを使っています。インデックス自体は一意性を強制しませんが
+オプションでunique: trueを指定
+rails generate migration add_password_digest_to_users password_digest:string
+def change
+  add_column :users, :password_digest, :string
+end

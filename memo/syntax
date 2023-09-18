@@ -1,0 +1,22 @@
+(1..5).each { |i| puts 2 * i }
+(1..5).each do |i|
+    puts 2 * i
+end
+
+%w[A B C].map { |char| char.downcase }
+=> ["a", "b", "c"]
+%w[A B C].map(&:downcase)
+=> ["a", "b", "c"]
+
+>> puts "It worked!", "It worked!".inspect
+It worked!
+"It worked!"
+Rubyは改行と空白を区別しません
+
+クラスメソッドはString.newのように.で表記され、
+インスタンスメソッドはString#lengthのように#と
+表記されます。
+
+upcase
+
+

@@ -1,0 +1,10 @@
+---test/test_helper.rb
+require "rails/test_help"旧
+require "minitest/reporters"新
+Minitest::Reporters.use!新 追記
+---test/test_helper.rb
+test環境でもApplicationヘルパーを使えるようにする
+# test/fixtures/*.ymlのfixtureをすべてセットアップする
+  fixtures :all旧
+  include ApplicationHelper新
+databeseを一意にする。メールを保存するときは小文字にする。

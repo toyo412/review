@@ -1,0 +1,61 @@
+例 gem"rails", ">= 3.22" 3.22と同じか最新を
+インストール
+例 gem "puma", "~> 5.0" 5.0から近いものを
+インストール、6.0などのメジャーバージョンは
+インストールされない
+Sprockets 
+アセットファイルにアクセス、パス管理（アセットパス）
+アセットのコンパイル(Asset Pipeline)アセットをまとめる処理を行う。
+アセットファイル同士の依存性を管理
+sqlite3
+デフォルトのデータベース
+puma 
+アプリケーションサーバ、webサーバの機能ももつ
+Import maps
+Import mapsはJavaScript(ES6)のimport文やimport()
+式で取得するESModulesのURLを制御することができる
+Web標準。RailsサーバーとWebブラウザのみで、モダン
+なJavaScript開発が可能
+turbo-rails
+TurboはHotwireの中核となるJavaScriptのライブラリ。
+Turboを使うとJavaScriptを書かずにSPAのようなインタ
+ラクティブなアプリケーションを作れるよ。 Stimulusは
+Turboと相性が良いJavaScriptのライブラリだよ。カオス
+になりがちなJavaScriptにレールを敷く役割を担っている。
+jbuilder
+JSON形式のデータを簡単に作成する事が出来るgem。
+JSONとは、JavaScript Object Notationの略でJavaScript
+のオブジェクトの表記法をベースにしたデータフォーマット。
+bootsnap
+railsの起動時の処理を最適化する(パスとrubyのコンパイル
+結果をキャッシュ)ことで起動時間を短縮してくれるgem。
+sass-rails
+Asset PipelineのSass機能
+bootstrap
+便利なデザインクラスを提供してくれるgem
+web-console
+consoleか<% console %>で呼び出す
+capybara
+Webアプリ用のE2Eテスティングフレームワーク
+selenium-webdriver
+自動化してテストを実行する
+webdrivers
+chromeを自動で操作するのに必要。
+miniracer
+JavaScriptのruntimeに必要。
+以下のコマンドを打つ。
+gem update --system
+gem uninstall --all mini_racer libv8-node
+bundle lock --add-platform arm64-darwin
+bundle install
+"rails-controller-testing"
+assignsとassert_templeteが使えるが、今はRspec
+に変わっていて時代遅れであり非推薦
+gem "bootstrap-sass"
+LESSをSassへ変換し、必要なBootstrapファイルを
+現在のアプリケーションですべて利用できるようにします。
+bcrypt
+has_secure_passwordを使ってパスワードをハッシュ化するためのライブラリ
+bcryptアルゴリズムではハッシュ化する前にソルト(Salt)が追加されていま
+す。これにより、辞書攻撃(Dictionary Attacks)やレインボーテーブル攻撃
+(Rainbow Table Attacks)といったタイプの攻撃を防ぐことができます。
